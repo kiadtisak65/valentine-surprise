@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: heartbeat 1s infinite alternate;
+        }
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        .flowers {
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        .message {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            color: darkred;
+        }
+        .falling-hearts {
+            position: absolute;
+            top: -50px;
+            color: red;
+            font-size: 30px;
+            animation: fall 4s linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-50px); }
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 Happy Valentine's Day, ริศา 💖</h1>
+    <p>You're the love of my life! 💕</p>
+    <div class="heart">❤️</div>
+    <div class="flowers">🌹🌸🌼🌷💐</div>
+    <button class="btn" onclick="showMessage()">กดที่นี่ ริศา 💘</button>
+    <p class="message" id="loveMessage">ที่สุดของความโชคดี คือการมีริศาเข้ามา! 😘💕</p>
+    
+    <script>
+        function showMessage() {
+            document.getElementById("loveMessage").style.display = "block";
+            createFallingHearts();
+        }
+
+        function createFallingHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("falling-hearts");
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => { heart.remove(); }, 4000);
+            }
+        }
+    </script>
+</body>
+</html>
